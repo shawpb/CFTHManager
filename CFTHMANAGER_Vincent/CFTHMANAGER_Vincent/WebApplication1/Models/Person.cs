@@ -1,0 +1,17 @@
+﻿namespace WebApplication1.Models
+{
+	public class Person
+	{
+		public int Id { get; set; }
+		public Address Address { get; set; }
+		public string FirstName { get; set; }
+		public string LastName { get; set; }
+		public string PhoneNumber { get; set; }
+
+
+		public Person()
+		{
+			this.Address = new Address();
+		}
+	}
+}

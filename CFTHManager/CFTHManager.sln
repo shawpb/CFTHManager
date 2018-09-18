@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2019
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CFTHManager", "CFTHManager\CFTHManager.csproj", "{E89CC39F-A329-435C-8787-1912D196106F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CFTHManager", "CFTHManager\CFTHManager.csproj", "{BF11A431-B36F-4523-9542-9C59C12D0DDB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E89CC39F-A329-435C-8787-1912D196106F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E89CC39F-A329-435C-8787-1912D196106F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E89CC39F-A329-435C-8787-1912D196106F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E89CC39F-A329-435C-8787-1912D196106F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF11A431-B36F-4523-9542-9C59C12D0DDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF11A431-B36F-4523-9542-9C59C12D0DDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF11A431-B36F-4523-9542-9C59C12D0DDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF11A431-B36F-4523-9542-9C59C12D0DDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {EDAC668F-CCDE-4B84-BB98-4B063F02932F}
+		SolutionGuid = {F815389B-97E7-4050-9A11-86A8D052CA36}
 	EndGlobalSection
 EndGlobal
