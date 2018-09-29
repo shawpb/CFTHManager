@@ -1,25 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using CFTHManager.DbContexts;
 using CFTHManager.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CFTHManager.Controllers
 {
-    public class PeopleController : Controller
+	public class PeopleController : Controller
     {
         private PersonContext db = new PersonContext();
 
-        // GET: People
-        public ActionResult Index()
-        {
-            return View(db.People.ToList());
-        }
+       		public ActionResult Index(string searchString = null)
+		{
+			var peoples = from p in db.People select p;
+
+			if (!string.IsNullOrEmpty(searchString))
+			{
+				peoples = peoples.Where(s => s.LastName.Contains(searchString) || s.FirstName.Contains(searchString));
+			}
+
+			return View(peoples.OrderBy(person => person.LastName).ToList());
+		}
 
         // GET: People/Details/5
         public ActionResult Details(int? id)
