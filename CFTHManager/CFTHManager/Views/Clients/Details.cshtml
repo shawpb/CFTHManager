@@ -1,0 +1,50 @@
+﻿@model CFTHManager.Models.Client
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Client</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FamilySize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FamilySize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgencyPickUp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgencyPickUp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CfhToDeliver)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CfhToDeliver)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnteredDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnteredDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

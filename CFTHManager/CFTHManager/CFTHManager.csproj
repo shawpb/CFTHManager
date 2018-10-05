@@ -187,13 +187,25 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
+    <Compile Include="DbContexts\ClientContext.cs" />
     <Compile Include="DbContexts\PersonContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810010227501_InitialCreate.cs" />
+    <Compile Include="Migrations\201810010227501_InitialCreate.Designer.cs">
+      <DependentUpon>201810010227501_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810050454381_migrtion1.cs" />
+    <Compile Include="Migrations\201810050454381_migrtion1.Designer.cs">
+      <DependentUpon>201810050454381_migrtion1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -241,6 +253,11 @@
     <Content Include="Views\People\Details.cshtml" />
     <Content Include="Views\People\Edit.cshtml" />
     <Content Include="Views\People\Index.cshtml" />
+    <Content Include="Views\Clients\Create.cshtml" />
+    <Content Include="Views\Clients\Delete.cshtml" />
+    <Content Include="Views\Clients\Details.cshtml" />
+    <Content Include="Views\Clients\Edit.cshtml" />
+    <Content Include="Views\Clients\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -257,6 +274,14 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201810010227501_InitialCreate.resx">
+      <DependentUpon>201810010227501_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810050454381_migrtion1.resx">
+      <DependentUpon>201810050454381_migrtion1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

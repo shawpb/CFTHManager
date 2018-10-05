@@ -1,0 +1,56 @@
+﻿@model CFTHManager.Models.Client
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Client</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FamilySize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FamilySize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgencyPickUp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgencyPickUp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CfhToDeliver)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CfhToDeliver)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnteredDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnteredDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

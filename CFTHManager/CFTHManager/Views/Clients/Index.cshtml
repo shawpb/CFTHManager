@@ -1,0 +1,63 @@
+﻿@model IEnumerable<CFTHManager.Models.Client>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.PersonalInformation.LastName)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.PersonalInformation.FirstName)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.FamilySize)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.AgencyPickUp)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.CfhToDeliver)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.EnteredDate)
+		</th>
+		<th></th>
+	</tr>
+
+@foreach (var item in Model) {
+	<tr>
+		<td>
+			@Html.DisplayFor(modelItem => item.PersonalInformation.LastName)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.PersonalInformation.FirstName)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.FamilySize)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.AgencyPickUp)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.CfhToDeliver)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.EnteredDate)
+		</td>
+		<td>
+			@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+			@Html.ActionLink("Details", "Details", new { id = item.Id }) |
+			@Html.ActionLink("Delete", "Delete", new { id = item.Id })
+		</td>
+	</tr>
+}
+
+</table>
