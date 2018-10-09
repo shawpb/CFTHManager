@@ -191,17 +191,12 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="DbContexts\ClientContext.cs" />
-    <Compile Include="DbContexts\PersonContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201810010227501_InitialCreate.cs" />
-    <Compile Include="Migrations\201810010227501_InitialCreate.Designer.cs">
-      <DependentUpon>201810010227501_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810050454381_migrtion1.cs" />
-    <Compile Include="Migrations\201810050454381_migrtion1.Designer.cs">
-      <DependentUpon>201810050454381_migrtion1.cs</DependentUpon>
+    <Compile Include="Migrations\201810090233526_InitialCreate.cs" />
+    <Compile Include="Migrations\201810090233526_InitialCreate.Designer.cs">
+      <DependentUpon>201810090233526_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
@@ -276,11 +271,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201810010227501_InitialCreate.resx">
-      <DependentUpon>201810010227501_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810050454381_migrtion1.resx">
-      <DependentUpon>201810050454381_migrtion1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201810090233526_InitialCreate.resx">
+      <DependentUpon>201810090233526_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

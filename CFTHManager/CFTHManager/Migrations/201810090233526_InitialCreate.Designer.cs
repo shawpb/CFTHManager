@@ -13,7 +13,7 @@ namespace CFTHManager.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201810010227501_InitialCreate"; }
+            get { return "201810090233526_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

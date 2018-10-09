@@ -26,24 +26,24 @@ namespace CFTHManager.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        PersonalInformationId = c.Int(nullable: false),
+                        AdvocateId = c.Int(),
+                        IntakePersonId = c.Int(),
+                        DataEntryPersonId = c.Int(),
                         FamilySize = c.Int(nullable: false),
                         AgencyPickUp = c.Boolean(nullable: false),
                         CfhToDeliver = c.Boolean(nullable: false),
                         EnteredDate = c.DateTime(nullable: false),
-                        Advocate_Id = c.Int(),
-                        DataEntryPerson_Id = c.Int(),
-                        IntakePerson_Id = c.Int(),
-                        PersonalInformation_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.People", t => t.Advocate_Id)
-                .ForeignKey("dbo.People", t => t.DataEntryPerson_Id)
-                .ForeignKey("dbo.People", t => t.IntakePerson_Id)
-                .ForeignKey("dbo.People", t => t.PersonalInformation_Id)
-                .Index(t => t.Advocate_Id)
-                .Index(t => t.DataEntryPerson_Id)
-                .Index(t => t.IntakePerson_Id)
-                .Index(t => t.PersonalInformation_Id);
+                .ForeignKey("dbo.People", t => t.AdvocateId)
+                .ForeignKey("dbo.People", t => t.DataEntryPersonId)
+                .ForeignKey("dbo.People", t => t.IntakePersonId)
+                .ForeignKey("dbo.People", t => t.PersonalInformationId, cascadeDelete: true)
+                .Index(t => t.PersonalInformationId)
+                .Index(t => t.AdvocateId)
+                .Index(t => t.IntakePersonId)
+                .Index(t => t.DataEntryPersonId);
             
             CreateTable(
                 "dbo.People",
@@ -64,16 +64,16 @@ namespace CFTHManager.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Clients", "PersonalInformation_Id", "dbo.People");
-            DropForeignKey("dbo.Clients", "IntakePerson_Id", "dbo.People");
-            DropForeignKey("dbo.Clients", "DataEntryPerson_Id", "dbo.People");
-            DropForeignKey("dbo.Clients", "Advocate_Id", "dbo.People");
+            DropForeignKey("dbo.Clients", "PersonalInformationId", "dbo.People");
+            DropForeignKey("dbo.Clients", "IntakePersonId", "dbo.People");
+            DropForeignKey("dbo.Clients", "DataEntryPersonId", "dbo.People");
+            DropForeignKey("dbo.Clients", "AdvocateId", "dbo.People");
             DropForeignKey("dbo.People", "MainAddress_Id", "dbo.Addresses");
             DropIndex("dbo.People", new[] { "MainAddress_Id" });
-            DropIndex("dbo.Clients", new[] { "PersonalInformation_Id" });
-            DropIndex("dbo.Clients", new[] { "IntakePerson_Id" });
-            DropIndex("dbo.Clients", new[] { "DataEntryPerson_Id" });
-            DropIndex("dbo.Clients", new[] { "Advocate_Id" });
+            DropIndex("dbo.Clients", new[] { "DataEntryPersonId" });
+            DropIndex("dbo.Clients", new[] { "IntakePersonId" });
+            DropIndex("dbo.Clients", new[] { "AdvocateId" });
+            DropIndex("dbo.Clients", new[] { "PersonalInformationId" });
             DropTable("dbo.People");
             DropTable("dbo.Clients");
             DropTable("dbo.Addresses");

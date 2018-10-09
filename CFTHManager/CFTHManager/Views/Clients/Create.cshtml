@@ -18,10 +18,10 @@
 
 
 	<div class="form-group">
-		@Html.LabelFor(model => model.PersonalInformationId, "PersonalInformationId", new { @class = "control-label col-md-2" })
+		@Html.LabelFor(model => model.PersonalInformation, htmlAttributes: new { @class = "control-label col-md-2" })
 		<div class="col-md-10">
-			@Html.DropDownList("PersonId", String.Empty)
-			@Html.ValidationMessageFor(model => model.PersonalInformationId)
+			@Html.DropDownList("person", (IEnumerable<SelectListItem>)ViewBag.Person, "Select Person")
+			@Html.ValidationMessageFor(model => model.PersonalInformation, "", new { @class = "text-danger" })
 		</div>
 	</div>
 
@@ -64,7 +64,7 @@
 	<div class="form-group">
 		@Html.LabelFor(model => model.IntakePersonId, "IntakePersonId", new { @class = "control-label col-md-2" })
 		<div class="col-md-10">
-			@Html.DropDownList("PersonId", String.Empty)
+			@Html.DropDownList("person", (IEnumerable<SelectListItem>)ViewBag.Person, "Select Intake Person")
 			@Html.ValidationMessageFor(model => model.IntakePersonId)
 		</div>
 	</div>
@@ -72,7 +72,7 @@
 	<div class="form-group">
 		@Html.LabelFor(model => model.DataEntryPersonId, "DataEntryPersonId", new { @class = "control-label col-md-2" })
 		<div class="col-md-10">
-			@Html.DropDownList("PersonId", String.Empty)
+			@Html.DropDownList("person", (IEnumerable<SelectListItem>)ViewBag.Person, "Select Data Entry Person")
 			@Html.ValidationMessageFor(model => model.DataEntryPersonId)
 		</div>
 	</div>

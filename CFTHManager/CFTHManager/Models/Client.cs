@@ -12,9 +12,9 @@ namespace CFTHManager.Models
 		public int Id { get; set; }
 		
 		public int PersonalInformationId { get; set; }
-		public int AdvocateId { get; set; }
-		public int IntakePersonId { get; set; }
-		public int DataEntryPersonId { get; set; }
+		public int? AdvocateId { get; set; }
+		public int? IntakePersonId { get; set; }
+		public int? DataEntryPersonId { get; set; }
 
 
 		public Person PersonalInformation { get; set; }

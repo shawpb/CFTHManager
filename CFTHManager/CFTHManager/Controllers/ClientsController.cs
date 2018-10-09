@@ -39,7 +39,18 @@ namespace CFTHManager.Controllers
         // GET: Clients/Create
         public ActionResult Create()
         {
-            return View();
+			var people = db.People.ToList();
+			List<SelectListItem> peopleList = new List<SelectListItem>();
+			foreach (Person item in people)
+			{
+				peopleList.Add(new SelectListItem
+				{
+					Text = item.LastName + ", " + item.FirstName,
+					Value = item.Id.ToString()
+				});
+			}
+			ViewBag.Person = peopleList;
+			return View();
         }
 
         // POST: Clients/Create

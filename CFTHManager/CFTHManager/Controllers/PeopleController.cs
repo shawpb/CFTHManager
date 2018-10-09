@@ -1,18 +1,15 @@
-﻿using System;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 using CFTHManager.DbContexts;
 using CFTHManager.Models;
-using Microsoft.AspNetCore.Mvc;
 
 namespace CFTHManager.Controllers
 {
 	public class PeopleController : Controller
     {
-        private PersonContext db = new PersonContext();
+        private ClientContext db = new ClientContext();
 
        		public ActionResult Index(string searchString = null)
 		{
