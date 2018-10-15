@@ -20,7 +20,7 @@
 	<div class="form-group">
 		@Html.LabelFor(model => model.PersonalInformation, htmlAttributes: new { @class = "control-label col-md-2" })
 		<div class="col-md-10">
-			@Html.DropDownList("person", (IEnumerable<SelectListItem>)ViewBag.Person, "Select Person")
+			@Html.DropDownList("PersonalInformationId", (IEnumerable<SelectListItem>)ViewBag.Person, "Select Person")
 			@Html.ValidationMessageFor(model => model.PersonalInformation, "", new { @class = "text-danger" })
 		</div>
 	</div>
@@ -56,15 +56,23 @@
 	<div class="form-group">
 		@Html.LabelFor(model => model.EnteredDate, htmlAttributes: new { @class = "control-label col-md-2" })
 		<div class="col-md-10">
-			@Html.EditorFor(model => model.EnteredDate, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.EditorFor(model => model.EnteredDate, new { htmlAttributes = new { @class = "form-control", @Value = DateTime.Now.ToShortDateString() } })
 			@Html.ValidationMessageFor(model => model.EnteredDate, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.AdvocateId, "AdvocateId", new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.DropDownList("AdvocateId", (IEnumerable<SelectListItem>)ViewBag.Person, "Select Advocate")
+			@Html.ValidationMessageFor(model => model.AdvocateId)
 		</div>
 	</div>
 
 	<div class="form-group">
 		@Html.LabelFor(model => model.IntakePersonId, "IntakePersonId", new { @class = "control-label col-md-2" })
 		<div class="col-md-10">
-			@Html.DropDownList("person", (IEnumerable<SelectListItem>)ViewBag.Person, "Select Intake Person")
+			@Html.DropDownList("IntakePersonId", (IEnumerable<SelectListItem>)ViewBag.Person, "Select Intake Person")
 			@Html.ValidationMessageFor(model => model.IntakePersonId)
 		</div>
 	</div>
@@ -72,7 +80,7 @@
 	<div class="form-group">
 		@Html.LabelFor(model => model.DataEntryPersonId, "DataEntryPersonId", new { @class = "control-label col-md-2" })
 		<div class="col-md-10">
-			@Html.DropDownList("person", (IEnumerable<SelectListItem>)ViewBag.Person, "Select Data Entry Person")
+			@Html.DropDownList("DataEntryPersonId", (IEnumerable<SelectListItem>)ViewBag.Person, "Select Data Entry Person")
 			@Html.ValidationMessageFor(model => model.DataEntryPersonId)
 		</div>
 	</div>

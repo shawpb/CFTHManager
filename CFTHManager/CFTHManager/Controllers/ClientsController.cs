@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using CFTHManager.DbContexts;
 using CFTHManager.Models;
 
 namespace CFTHManager.Controllers
 {
-    public class ClientsController : Controller
+	public class ClientsController : Controller
     {
         private ClientContext db = new ClientContext();
 
         // GET: Clients
         public ActionResult Index()
         {
-            return View(db.Clients.ToList());
+            return View(db.Clients.Include(c => c.PersonalInformation ).ToList());
         }
 
         // GET: Clients/Details/5
@@ -33,7 +30,18 @@ namespace CFTHManager.Controllers
             {
                 return HttpNotFound();
             }
-            return View(client);
+			var people = db.People.ToList();
+			List<SelectListItem> peopleList = new List<SelectListItem>();
+			foreach (Person item in people)
+			{
+				peopleList.Add(new SelectListItem
+				{
+					Text = item.LastName + ", " + item.FirstName,
+					Value = item.Id.ToString()
+				});
+			}
+			ViewBag.Person = peopleList;
+			return View(client);
         }
 
         // GET: Clients/Create
@@ -58,7 +66,7 @@ namespace CFTHManager.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FamilySize,AgencyPickUp,CfhToDeliver,EnteredDate")] Client client)
+        public ActionResult Create([Bind(Include = "Id,PersonalInformationId,FamilySize,AgencyPickUp,CfhToDeliver,EnteredDate,AdvocateId,IntakePersonId,DataEntryPersonId")] Client client)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +98,7 @@ namespace CFTHManager.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FamilySize,AgencyPickUp,CfhToDeliver,EnteredDate")] Client client)
+        public ActionResult Edit([Bind(Include = "Id,PersonalInformationId,FamilySize,AgencyPickUp,CfhToDeliver,EnteredDate,AdvocateId,IntakePersonId,DataEntryPersonId")] Client client)
         {
             if (ModelState.IsValid)
             {
